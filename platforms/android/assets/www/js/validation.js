@@ -9,12 +9,12 @@ $(function(){
 		rules:{
 			name:{
 				required: true,
-				remote: "http://localhost/tone_analyzer/database/user_management/checkUser.php"
+				remote: "http://localhost/rest_recomm_service/database/user_management/checkUser.php"
 			},
 			email:{
 				required:true,
 				email:true,
-				remote: "http://localhost/tone_analyzer/database/user_management/checkEmail.php"
+				remote: "http://localhost/rest_recomm_service/database/user_management/checkEmail.php"
 			},
 			password: {
 				required: true,
@@ -41,28 +41,33 @@ $(function(){
 
 $(document).ready(function(){
 	$( "#registrationForm" ).submit(function( event ) {
-		
-		var name=$("#name").val();
-		var email=$("#email").val();
-		var password=$("#password").val();
-		
-		var dataString="name="+name+"&email="+email+"&password="+password+"&insert=";
-		
-				$.ajax({
-	   	   		 type: "POST",
-	   	   		 url: "http://localhost/tone_analyzer/database/user_management/register.php",
-	   	   		 data: dataString,
-	   	   		 crossDomain: true,
-	   	   		 cache: false,
-	   	   		 beforeSend: function(){ $("#submit-button").val('Connecting...');},
-	   	   		 success: function(data){
-	   	   			 if(data=="success"){
-	   	   				 	window.location.replace("../UC002-login/login.html");
-	   	   				 }
-	   	   				 else if(data=="error"){
-	   	   					 alert("error");
-	   	   				 }
-	   	   			 }
-	   	   		 });
+		if($(this).valid()) {
+		       //go ahead
+			var name=$("#name").val();
+			var email=$("#email").val();
+			var password=$("#password").val();
+			
+			var dataString="name="+name+"&email="+email+"&password="+password+"&insert=";
+			
+					$.ajax({
+		   	   		 type: "POST",
+		   	   		 url: "http://localhost/rest_recomm_service/database/user_management/register.php",
+		   	   		 data: dataString,
+		   	   		 crossDomain: true,
+		   	   		 cache: false,
+		   	   		 beforeSend: function(){ $("#submit-button").val('Connecting...');},
+		   	   		 success: function(data){
+		   	   			 if(data=="success"){
+		   	   				 	window.location.replace("../UC002-login/login_bootstrap.html");
+		   	   				 }
+		   	   				 else if(data=="error"){
+		   	   					 alert("error");
+		   	   				 }
+		   	   			 }
+		   	   		 });
+		    } else {
+		       //do some error handling
+		    	//alert("Somethink is wrong");
+		    }
 	});
 });
