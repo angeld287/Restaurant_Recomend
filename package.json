@@ -1,0 +1,21 @@
+{
+    "name": "restaurant.recomend",
+    "version": "0.0.1",
+    "displayName": "Restaurant Recomend",
+    "cordova": {
+        "platforms": [
+            "android"
+        ],
+        "plugins": {
+            "cordova-plugin-mfp": {},
+            "cordova-plugin-whitelist": {},
+            "cordova-plugin-call-number": {}
+        }
+    },
+    "dependencies": {
+        "cordova-android": "6.2.0-nightly.2016.12.9.6c60dc5d",
+        "cordova-plugin-call-number": "^1.0.1",
+        "cordova-plugin-mfp": "~8.0.2017033009",
+        "cordova-plugin-whitelist": "1"
+    }
+}

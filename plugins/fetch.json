@@ -2,7 +2,7 @@
     "cordova-plugin-mfp": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-mfp@8.0.2017033009"
+            "id": "cordova-plugin-mfp@~8.0.2017033009"
         },
         "is_top_level": true,
         "variables": {}
@@ -43,6 +43,14 @@
         "source": {
             "type": "registry",
             "id": "cordova-plugin-whitelist@1"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-call-number": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-call-number@1.0.1"
         },
         "is_top_level": true,
         "variables": {}

@@ -39,6 +39,13 @@ module.exports = [
         "file": "plugins/cordova-plugin-mfp/bootstrap.js",
         "id": "cordova-plugin-mfp.mfp",
         "runs": true
+    },
+    {
+        "file": "plugins/cordova-plugin-call-number/www/CallNumber.js",
+        "id": "cordova-plugin-call-number.CallNumber",
+        "clobbers": [
+            "call"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -49,7 +56,8 @@ module.exports.metadata =
     "cordova-plugin-globalization": "1.0.7",
     "cordova-plugin-okhttp": "2.0.0",
     "cordova-plugin-mfp": "8.0.2017033009",
-    "cordova-plugin-whitelist": "1.3.2"
+    "cordova-plugin-whitelist": "1.3.2",
+    "cordova-plugin-call-number": "1.0.1"
 };
 // BOTTOM OF METADATA
 });

@@ -12,6 +12,9 @@
         },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "tone.analyzer.app"
+        },
+        "cordova-plugin-call-number": {
+            "PACKAGE_NAME": "restaurant.recomend"
         }
     },
     "dependent_plugins": {
