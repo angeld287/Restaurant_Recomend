@@ -9,10 +9,12 @@
        * element that contains the map. */
       #map {
         height: 100%;
+        width: 100%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
         height: 100%;
+        width: 100%;
         margin: 0;
         padding: 0;
       }
@@ -92,9 +94,9 @@
           var directionsDisplay = new google.maps.DirectionsRenderer;
           var directionsService = new google.maps.DirectionsService;
           var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 13,
+            zoom: 16,
             //19.2220122,-70.5210187
-            center: {lat: 18.4851511, lng: -69.9412167}		//new google.maps.LatLng(localStorage.getItem("latitude"), localStorage.getItem("longitude"))
+            center: new google.maps.LatLng(localStorage.getItem("latitude"), localStorage.getItem("longitude")) //{lat: 18.4851511, lng: -69.9412167} 
           });
           directionsDisplay.setMap(map);
 
@@ -106,17 +108,18 @@
 
       function calculateAndDisplayRoute(directionsService, directionsDisplay, _lat, _len, _name) {
         var selectedMode = document.getElementById('mode').value;
-        var latlen = {lat: _lat, lng: _len};
+        var latlen = new google.maps.LatLng(localStorage.getItem("latitude"), localStorage.getItem("longitude"));
         //alert(_name);
         directionsService.route({
-          origin: {lat: 18.4851511, lng: -69.9412167},
-          //origin: new google.maps.LatLng(localStorage.getItem("latitude"), localStorage.getItem("longitude")), 
+          //origin: {lat: 18.4851511, lng: -69.9412167},
+          origin: new google.maps.LatLng(localStorage.getItem("latitude"), localStorage.getItem("longitude")), 
           destination: new google.maps.LatLng(_lat, _len), 
           //destination: _name, 
           travelMode: google.maps.TravelMode[selectedMode]
         }, function(response, status) {
           if (status == 'OK') {
-        	directionsDisplay.setOptions({ preserveViewport: true });
+        	  directionsDisplay.setOptions({ preserveViewport: true });
+            //map.setCenter(latlen);
             directionsDisplay.setDirections(response);
           } else {
             window.alert('Directions request failed due to ' + status);

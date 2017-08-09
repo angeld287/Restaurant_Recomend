@@ -139,7 +139,7 @@ ul.social-network li {
           
           //buscando datos del usuario
           	var id=localStorage.getItem("userId");
-			var url = 'http://localhost/Restaurant_Recomend/database/user_management/user_x_id.php'
+			var url = 'http://35.192.11.211/Restaurant_Recomend/database/user_management/user_x_id.php'
 			var dataString="id="+id;
 			$.ajax({
 				type: "GET",
@@ -176,7 +176,7 @@ ul.social-network li {
         	$("#IdFooter_update").empty();
         	$("#IdFooter_update").append("<a onclick='update("+id+")'>Update</a><br/><a onclick='cancel()'>Cancel</a>");
         	$(document).ready(function(){
-        		var url="http://localhost/Restaurant_Recomend/database/restaurant_management/return_cat_array.php";
+        		var url="http://35.192.11.211/Restaurant_Recomend/database/restaurant_management/return_cat_array.php";
         		$.getJSON(url,function(result){
         			$("#sel1").empty();
         			$.each(result, function(i, field){
@@ -192,6 +192,7 @@ ul.social-network li {
         
         //ejecucion del update
         function update(id){
+            //alert();
     		 var name=$("#name_update").val();
     		 var email=$("#email_update").val();
     		 var favorite_cat_restaurant=$("#sel1").val();
@@ -199,7 +200,7 @@ ul.social-network li {
     		 //alert(dataString);
     		 $.ajax({
     			 type: "POST",
-    			 url:"http://localhost/Restaurant_Recomend/database/user_management/update.php",
+    			 url:"http://35.192.11.211/Restaurant_Recomend/database/user_management/update.php",
     			 data: dataString,
     			 crossDomain: true,
     			 cache: false,

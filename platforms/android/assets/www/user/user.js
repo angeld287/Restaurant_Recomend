@@ -24,7 +24,7 @@ $(function(){
 				if($("#loginForm").valid()) {
 					var name=$("#name").val();
 					var password=$("#password").val();
-					var url = 'http://localhost/Restaurant_Recomend/database/login/login.php'
+					var url = 'http://35.192.11.211/Restaurant_Recomend/database/login/login.php'
 					var dataString="name="+name+"&password="+password;
 					//alert(dataString);
 					$.ajax({

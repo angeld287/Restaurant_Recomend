@@ -1,1 +1,1 @@
-var WL_CHECKSUM = {"checksum":0,"date":1502297029315,"machine":"instance-1"}
+var WL_CHECKSUM = {"checksum":0,"date":1502305543568,"machine":"agincdsk27"}

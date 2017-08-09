@@ -137,7 +137,7 @@ $( document ).ready(function() {
     function SetearValorGeneral(){
     	//setea valor general al rating
     	var dataString = window.location.search.substring(1);
-		var url = 'http://localhost/Restaurant_Recomend/database/restaurant_management/return_rating_x_rest.php'
+		var url = 'http://35.192.11.211/Restaurant_Recomend/database/restaurant_management/return_rating_x_rest.php'
 		//alert(dataString);
 			$("#stars-existing").empty();
 		$.ajax({

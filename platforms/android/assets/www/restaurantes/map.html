@@ -48,7 +48,7 @@
       	  
           var map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: -34.397, lng: 150.644},
-            zoom: 13,//18,
+            zoom: 16,//18,
             mapTypeId: google.maps.MapTypeId.ROADMAP
           });
           var infoWindow = new google.maps.InfoWindow({map: map});
@@ -78,10 +78,11 @@
                 lng: position.coords.longitude //-69.87620919942856
               };
 			  //Ubicacion actual del usuario para lista de restaurantes cercanos
+        //18.4738121,-69.915601  - unapec
               localStorage.setItem("latitude", position.coords.latitude);
-			  localStorage.setItem("longitude", position.coords.longitude);
-			  //localStorage.setItem("latitude", 18.4718926);
-			  //localStorage.setItem("longitude", -69.9346863);
+			        localStorage.setItem("longitude", position.coords.longitude);
+			        //localStorage.setItem("latitude", 18.4738121);
+			        //localStorage.setItem("longitude", -69.915601);
 			  //alert(localStorage.getItem("latitude")+" "+localStorage.getItem("longitude"));
 
               infoWindow.setPosition(pos);
