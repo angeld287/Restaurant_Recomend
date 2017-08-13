@@ -74,15 +74,15 @@
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
               var pos = {
-                lat: position.coords.latitude, //18.466596488137764,
-                lng: position.coords.longitude //-69.87620919942856
+                lat: 18.4743075,  //position.coords.latitude, 
+                lng: -69.9352807  //position.coords.longitude 
               };
 			  //Ubicacion actual del usuario para lista de restaurantes cercanos
-        //18.4738121,-69.915601  - unapec
-              localStorage.setItem("latitude", position.coords.latitude);
-			        localStorage.setItem("longitude", position.coords.longitude);
-			        //localStorage.setItem("latitude", 18.4738121);
-			        //localStorage.setItem("longitude", -69.915601);
+        //18.4738121,-69.915601  - unapec | 18.4743075,-69.9352807 PRM motors
+              //localStorage.setItem("latitude", position.coords.latitude);
+			        //localStorage.setItem("longitude", position.coords.longitude);
+			        localStorage.setItem("latitude", 18.4743075);
+			        localStorage.setItem("longitude", -69.9352807);
 			  //alert(localStorage.getItem("latitude")+" "+localStorage.getItem("longitude"));
 
               infoWindow.setPosition(pos);

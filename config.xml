@@ -60,7 +60,7 @@
     </mfp:windows>
     <mfp:platformVersion>8.0.0.00-20170328-091204</mfp:platformVersion>
     <mfp:clientCustomInit enabled="false" />
-    <mfp:server runtime="mfp" url="http://172.16.200.116:9080" />
+    <mfp:server runtime="mfp" url="http://192.168.0.3:9080" />
     <mfp:directUpdateAuthenticityPublicKey />
     <mfp:languagePreferences>en</mfp:languagePreferences>
     <engine name="android" spec="6.2.0-nightly.2016.12.9.6c60dc5d" />

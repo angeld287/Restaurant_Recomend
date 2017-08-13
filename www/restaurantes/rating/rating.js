@@ -157,7 +157,7 @@ $( document ).ready(function() {
 					$.each(result, function(i, field){
 						 //alert();
 						 for(i = 0; i < 5; i++){
-							 if(i < field.number_voted - 1){
+							 if(i < field.number_voted){
 								 $("#stars-existing").append("<span class='glyphicon glyphicon-star'></span>");
 							 }else{
 								 $("#stars-existing").append("<span class='glyphicon glyphicon-star-empty'></span>"); 
@@ -181,3 +181,75 @@ $( document ).ready(function() {
   });
   
 });
+
+
+$( document ).ready(function() {
+      
+      //verifica si el usuario logueado ya voto
+      var restid = window.location.search.substring(1);
+      restid = restid.replace('id=','');
+      var userid = localStorage.getItem("userId");
+      var dataString = "user_voted="+userid+"&restaurant_voted="+restid;
+    var url = 'http://35.192.11.211/Restaurant_Recomend/database/restaurant_management/rating_valid.php'
+    //alert(dataString);
+    $.ajax({
+      type: "GET",
+      url: url,
+      data: dataString,
+      dataType: "text",
+      crossDomain: true,
+      cache: false,
+      beforeSend: function(){},
+      success: function(result){
+        //alert(result);
+        if(result == 0){
+          //$("#existing").append("<div id='stars-existing' class='starrr' data-rating='0'>adsa</div>");
+          //alert("block");
+          $("#vote").css("display", "none");
+          $("#vote2").css("display", "block");
+        }else if(result == 1){
+          //alert("pass");
+        }
+      },
+      error: function(request, status, error){
+        alert(request.responseText+" | "+status+" | "+error);
+      }       
+    });
+      
+      //setea valor general al rating
+      var dataString = window.location.search.substring(1);
+    var url = 'http://35.192.11.211/Restaurant_Recomend/database/restaurant_management/return_rating_x_rest.php'
+    //alert(dataString);
+    $.ajax({
+      type: "GET",
+      url: url,
+      data: dataString,
+      dataType: "json",
+      crossDomain: true,
+      cache: false,
+      beforeSend: function(){},
+      success: function(result){
+        if(result == 0){
+          for(i = 0; i < 5; i++){
+             $("#stars-existing").append("<span class='glyphicon glyphicon-star-empty'></span>");
+           }
+        }else {
+          $.each(result, function(i, field){
+             //alert();
+             for(i = 0; i < 5; i++){
+               if(i < field.number_voted){
+                 $("#stars-existing").append("<span class='glyphicon glyphicon-star'></span>");
+               }else{
+                 $("#stars-existing").append("<span class='glyphicon glyphicon-star-empty'></span>"); 
+               }
+             }
+             $("#count-existing").append(field.number_voted);
+             //$('.starrr').attr('data-rating', "4");
+          });
+        }
+      },
+      error: function(request, status, error){
+        alert(request.responseText+" | "+status+" | "+error);
+      }       
+    });
+    });
